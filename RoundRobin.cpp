@@ -1,10 +1,12 @@
 #include <iostream>
 #include <vector>
+
 using namespace std;
+
 int main(){
 	int i,n,time,remain,temps=0,time_quantum;
 	int wt=0,tat=0;
-	cout<<"Enter the total number of process="<<endl;
+	cout<<"Enter the total number of process = ";
 	cin>>n;
 	remain=n;
 	vector<int>at(n);
@@ -19,10 +21,10 @@ int main(){
 		rt[i]=bt[i];
 	}
 
-	cout<<"Enter the value of time QUANTUM:"<<endl;
+	cout<<"Enter the value of time QUANTUM : ";
 	cin>>time_quantum;
 
-	cout<<"\n\nProcess\t:Turnaround Time:Waiting Time\n\n";
+	cout<<"\nProcess\t:\tTurnaround Time\t:\tWaiting Time\n";
 
 	for(time=0,i=0;remain!=0;)
 	{
@@ -41,9 +43,7 @@ int main(){
 		if(rt[i]==0 && temps==1)
 		{
 			remain--;
-			cout<<"Process"<< i+1 << "\t"<<":"<<"\t"
-<<time-at[i]<<"\t:\t"<<time-at[i]-bt[i]<<endl;
-			cout<<endl;
+			cout<<"Process"<< i+1 << "\t"<<":"<<"\t"<<time-at[i]<<"\t:\t"<<time-at[i]-bt[i]<<endl;
 			wt += time-at[i]-bt[i];
 			tat += time-at[i];
 			temps=0;
@@ -57,7 +57,8 @@ int main(){
 	}
 
 	cout<<"Average waiting time "<<wt*1.0/n<<endl;
-	cout<<"Average turn around time "<<tat*1.0/n<<endl;;
+	cout<<"Average turn around time "<<tat*1.0/n;
+	cout<<endl;
 
 	return 0;
 }
